@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+    php:
+      image: 'gogalo/php7.2'
+      ports:
+        - 8000:8000
+      volumes:
+        - ./:/app
+      command: symfony serve --dir=/app/public --allow-http --no-tls --port=8000
