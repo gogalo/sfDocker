@@ -1,3 +1,9 @@
+# Aplicación symfony 4.4 dockerizada. 
+
+Utilizando la imagen oficial de php:7.2 como base, se genera y utiliza una imagen propia con los requisitos mínimos para poder ejecutar la aplicación web.
+
+Aparte también se instala el cliente de symfony para poder instalar las dependencias (symfony composer) desde el contenedor de php, sin la necesidad de instalar nada en el sistema anfitrión.
+
 ### Installation
 
 Crear directorio del proyecto y clonar el repositorio.
