@@ -3,9 +3,12 @@ version: '3'
 services:
 
     php:
-      image: 'gogalo/php7.2'
-      ports:
-        - 8000:8000
-      volumes:
-        - ./:/app
-      command: symfony serve --dir=/app/public --allow-http --no-tls --port=8000
+        image: gogalo/sf-4.x:v1.0
+        build:
+            context: .
+            dockerfile: ./build/Dockerfile-php
+        ports:
+            - 8000:8000
+        volumes:
+            - ./:/app
+        command: symfony serve --dir=/app/htdocs/public --allow-http --no-tls --port=8000
