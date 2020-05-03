@@ -1,13 +1,17 @@
-FROM php:7.2
+ARG php_version
+
+FROM php:${php_version}
 
 RUN apt-get update \ 
-    && apt-get install -y \ 
+    && apt-get install -y --no-install-recommends \ 
+            apt-utils \
+            libzip-dev \
             libmcrypt-dev \
             default-mysql-client \
             wget \
             git \ 
-            libmagickwand-dev --no-install-recommends \
-            ghostscript --no-install-recommends \
+            libmagickwand-dev \
+            ghostscript \
     && pecl install \
 		imagick \
 	&& docker-php-ext-enable \

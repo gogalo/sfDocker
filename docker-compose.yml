@@ -3,12 +3,15 @@ version: '3'
 services:
 
     php:
-        image: gogalo/sf-4.x:v1.0
+        image: "${PHP_IMAGE_NAME}:${COMPOSE_PROJECT_VERSION}"
         build:
+            args:
+                php_version: ${PHP_VERSION}
             context: .
             dockerfile: ./build/Dockerfile-php
+        container_name: "${COMPOSE_PROJECT_NAME}-php"
         ports:
-            - 8000:8000
+            - "${PHP_HOST_PORT}:${PHP_CONTAINER_PORT}"
         volumes:
             - ./:/app
-        command: symfony serve --dir=/app/htdocs/public --allow-http --no-tls --port=8000
+        command: "symfony serve --dir=/app/htdocs/public --allow-http --no-tls --port=${PHP_CONTAINER_PORT}"

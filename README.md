@@ -23,13 +23,17 @@ $ git clone https://github.com/gogalo/sfDocker.git .
 
 Una vez instalados, podremos lanzar y parar los contenedores con docker compose.
 
-1. Levantar contenedores
+1. Fichero .env
+
+Variables de entorno para Docker Compose. Cualquier cambio es necesario parar y borrar los contenedores. Dependiendo del cambio puede ser necesario volver a realizar el build al levantar los contenedores.
+
+2. Levantar contenedores. --build *(opcional)* primera vez o cambios en fichero .env y -d *(opcional)* para lanzar en backgroung
 
 ```sh
-$ docker-compose up -d
+$ docker-compose up [-d] [--build]
 ```
 
-2. Parar/borrar contenedores
+3. Parar/borrar contenedores
 
 ```sh
 $ docker-compose down
